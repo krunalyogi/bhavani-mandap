@@ -70,6 +70,15 @@ app.get('/api/health', (req, res) => {
     res.json({ success: true, message: 'Bhavani Mandap API is running 🙏', timestamp: new Date() });
 });
 
+app.get('/', (req, res) => {
+    res.json({
+        success: true,
+        message: 'Bhavani Mandap API is running successfully! 🚀',
+        docs: 'Please use the frontend application to interact with this API.',
+        timestamp: new Date()
+    });
+});
+
 // ── 404 Handler ────────────────────────────────────────────────────────────
 app.use((req, res) => {
     res.status(404).json({ success: false, message: 'Route not found' });
