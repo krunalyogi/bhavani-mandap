@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { Phone, Mail, MapPin, Instagram, Facebook, Youtube, Heart } from "lucide-react";
+import { Phone, MapPin, Heart } from "lucide-react";
 
 const SERVICES = ["Mandap Setup", "Stage Decoration", "Floral Décor", "Lighting", "Entry Gate Decor", "Seating Arrangements"];
 const QUICK_LINKS = [
@@ -46,26 +46,9 @@ export default function Footer() {
                             <a href="tel:+919824520806" className="flex items-center gap-3 hover:text-gold-400 transition-colors">
                                 <Phone size={16} className="text-gold-500 flex-shrink-0" /> +91 98245 20806 (Sanjay Patel)
                             </a>
-                            <a href="mailto:info@bhavanmandap.com" className="flex items-center gap-3 hover:text-gold-400 transition-colors">
-                                <Mail size={16} className="text-gold-500 flex-shrink-0" /> info@bhavanmandap.com
-                            </a>
                             <p className="flex items-center gap-3">
                                 <MapPin size={16} className="text-gold-500 flex-shrink-0" /> Mehsana, Gujarat, India
                             </p>
-                        </div>
-                        {/* Social */}
-                        <div className="flex gap-3 mt-6">
-                            {[
-                                { icon: Instagram, href: "#", label: "Instagram" },
-                                { icon: Facebook, href: "#", label: "Facebook" },
-                                { icon: Youtube, href: "#", label: "YouTube" },
-                            ].map(({ icon: Icon, href, label }) => (
-                                <a key={label} href={href} aria-label={label}
-                                    className="w-9 h-9 rounded-full bg-stone-800 flex items-center justify-center text-stone-400 hover:text-gold-400 hover:bg-stone-700 transition-all"
-                                >
-                                    <Icon size={16} />
-                                </a>
-                            ))}
                         </div>
                     </div>
 
