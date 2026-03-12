@@ -6,18 +6,18 @@ import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 const CATEGORIES = ["All", "Royal Mandap", "Floral Décor", "Stage", "Lighting", "Entry Gate", "Reception"];
 
 const GALLERY_ITEMS = [
-    { id: 1, category: "Royal Mandap", title: "Gold & White Royal Setup", location: "Mehsana", src: "https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80", aspect: "landscape" },
-    { id: 2, category: "Floral Décor", title: "Rose & Marigold Arch", location: "Ahmedabad", src: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80", aspect: "portrait" },
-    { id: 3, category: "Stage", title: "Velvet Backdrop Stage", location: "Surat", src: "https://images.unsplash.com/photo-1532712938310-34cb3982ef74?w=800&q=80", aspect: "landscape" },
-    { id: 4, category: "Lighting", title: "Fairy Light Canopy", location: "Vadodara", src: "https://images.unsplash.com/photo-1478720568477-152d9b164e26?w=800&q=80", aspect: "portrait" },
-    { id: 5, category: "Entry Gate", title: "Floral Entry Arch", location: "Rajkot", src: "https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80", aspect: "landscape" },
-    { id: 6, category: "Reception", title: "Grand Reception Setup", location: "Gandhinagar", src: "https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=800&q=80", aspect: "landscape" },
-    { id: 7, category: "Royal Mandap", title: "Maroon & Gold Mandap", location: "Mehsana", src: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80", aspect: "portrait" },
-    { id: 8, category: "Floral Décor", title: "Orchid & Lily Decor", location: "Ahmedabad", src: "https://images.unsplash.com/photo-1523438096851-9de18a8b11a4?w=800&q=80", aspect: "landscape" },
-    { id: 9, category: "Stage", title: "Led Wall Stage", location: "Surat", src: "https://images.unsplash.com/photo-1587271407850-8d438ca9fdf2?w=800&q=80", aspect: "landscape" },
-    { id: 10, category: "Lighting", title: "Chandelier Mandap", location: "Vadodara", src: "https://images.unsplash.com/photo-1519167758481-83f550bb49b3?w=800&q=80", aspect: "portrait" },
-    { id: 11, category: "Entry Gate", title: "Jasmine Gate Decor", location: "Mehsana", src: "https://images.unsplash.com/photo-1515934751635-c81c6bc9a2d8?w=800&q=80", aspect: "landscape" },
-    { id: 12, category: "Reception", title: "Crystal Ballroom Setup", location: "Ahmedabad", src: "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80", aspect: "portrait" },
+    { id: 1, category: "Royal Mandap", title: "Gold & White Royal Setup", location: "Mehsana", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346037/bhavani_mandap/real_media/images/IMG-20260307-WA0044.jpg", aspect: "landscape" },
+    { id: 2, category: "Floral Décor", title: "Rose & Marigold Arch", location: "Ahmedabad", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346039/bhavani_mandap/real_media/images/IMG-20260307-WA0045.jpg", aspect: "portrait" },
+    { id: 3, category: "Stage", title: "Velvet Backdrop Stage", location: "Surat", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346041/bhavani_mandap/real_media/images/IMG-20260307-WA0046.jpg", aspect: "landscape" },
+    { id: 4, category: "Lighting", title: "Fairy Light Canopy", location: "Vadodara", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346042/bhavani_mandap/real_media/images/IMG-20260307-WA0047.jpg", aspect: "portrait" },
+    { id: 5, category: "Entry Gate", title: "Floral Entry Arch", location: "Rajkot", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346044/bhavani_mandap/real_media/images/IMG-20260307-WA0048.jpg", aspect: "landscape" },
+    { id: 6, category: "Reception", title: "Grand Reception Setup", location: "Gandhinagar", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346046/bhavani_mandap/real_media/images/IMG-20260307-WA0049.jpg", aspect: "landscape" },
+    { id: 7, category: "Royal Mandap", title: "Maroon & Gold Mandap", location: "Mehsana", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346048/bhavani_mandap/real_media/images/IMG-20260307-WA0050.jpg", aspect: "portrait" },
+    { id: 8, category: "Floral Décor", title: "Orchid & Lily Decor", location: "Ahmedabad", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346049/bhavani_mandap/real_media/images/IMG-20260307-WA0051.jpg", aspect: "landscape" },
+    { id: 9, category: "Stage", title: "Led Wall Stage", location: "Surat", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346051/bhavani_mandap/real_media/images/IMG-20260307-WA0052.jpg", aspect: "landscape" },
+    { id: 10, category: "Lighting", title: "Chandelier Mandap", location: "Vadodara", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346052/bhavani_mandap/real_media/images/IMG-20260307-WA0053.jpg", aspect: "portrait" },
+    { id: 11, category: "Entry Gate", title: "Jasmine Gate Decor", location: "Mehsana", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346054/bhavani_mandap/real_media/images/IMG-20260307-WA0054.jpg", aspect: "landscape" },
+    { id: 12, category: "Reception", title: "Crystal Ballroom Setup", location: "Ahmedabad", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346056/bhavani_mandap/real_media/images/IMG-20260307-WA0055.jpg", aspect: "portrait" },
 ];
 
 const fadeUp: Variants = {

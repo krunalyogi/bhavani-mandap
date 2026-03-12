@@ -6,6 +6,8 @@ const User = require('./models/User');
 const Vendor = require('./models/Vendor');
 const Category = require('./models/Category');
 const MandapDesign = require('./models/MandapDesign');
+const fs = require('fs');
+const path = require('path');
 
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -13,6 +15,30 @@ async function seed() {
     try {
         await mongoose.connect(MONGO_URI);
         console.log('✅ Connected to MongoDB');
+
+        // Load real media
+        const mediaPath = path.join(__dirname, 'real_media.json');
+        let realImages = [];
+        if (fs.existsSync(mediaPath)) {
+            const data = JSON.parse(fs.readFileSync(mediaPath, 'utf8'));
+            realImages = data.images || [];
+            console.log(`📸 Loaded ${realImages.length} real images for seeding`);
+        } else {
+            console.log('⚠️ No real_media.json found! Falling back to placeholders.');
+        }
+
+        // Helper to get 5-8 random images
+        const getRandomImages = () => {
+            if (realImages.length === 0) return [{ url: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80', publicId: 'seed1', isPrimary: true }];
+            const numImages = Math.floor(Math.random() * 4) + 5; // 5 to 8 images
+            const shuffled = [...realImages].sort(() => 0.5 - Math.random());
+            const selected = shuffled.slice(0, numImages).map((img, i) => ({
+                url: img.url,
+                publicId: img.publicId,
+                isPrimary: i === 0
+            }));
+            return selected;
+        };
 
         // Clean up
         await MandapDesign.deleteMany({});
@@ -73,7 +99,7 @@ async function seed() {
                 description: 'A breathtaking golden mandap with intricate floral patterns and chandeliers. Perfect for large royal weddings.',
                 basePrice: 150000, decorationStyles: ['royal'],
                 location: { city: 'Mumbai', state: 'Maharashtra' },
-                images: [{ url: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80', publicId: 'seed1', isPrimary: true }],
+                images: getRandomImages(),
                 capacity: { min: 200, max: 1000 },
                 tags: ['gold', 'royal', 'wedding', 'luxury'],
                 isActive: true, isFeatured: true,
@@ -84,7 +110,7 @@ async function seed() {
                 description: 'Enchanting floral mandap bursting with roses, marigolds and orchids. A dream for flower lovers.',
                 basePrice: 90000, decorationStyles: ['floral'],
                 location: { city: 'Pune', state: 'Maharashtra' },
-                images: [{ url: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80', publicId: 'seed2', isPrimary: true }],
+                images: getRandomImages(),
                 capacity: { min: 100, max: 500 },
                 tags: ['flowers', 'roses', 'marigold', 'floral'],
                 isActive: true, isFeatured: true,
@@ -95,7 +121,7 @@ async function seed() {
                 description: 'Clean, contemporary mandap design that lets the couple shine. Simple yet stunning.',
                 basePrice: 60000, decorationStyles: ['minimalist', 'modern'],
                 location: { city: 'Bengaluru', state: 'Karnataka' },
-                images: [{ url: 'https://images.unsplash.com/photo-1537633552985-df8429e8048b?w=800&q=80', publicId: 'seed3', isPrimary: true }],
+                images: getRandomImages(),
                 capacity: { min: 50, max: 300 },
                 tags: ['modern', 'minimalist', 'contemporary'],
                 isActive: true, isFeatured: false,
@@ -106,7 +132,7 @@ async function seed() {
                 description: 'A classic Indian heritage-inspired mandap with deep maroon drapes and gold detailing.',
                 basePrice: 120000, decorationStyles: ['traditional'],
                 location: { city: 'Jaipur', state: 'Rajasthan' },
-                images: [{ url: 'https://images.unsplash.com/photo-1571771894821-ce9b6c11b08e?w=800&q=80', publicId: 'seed4', isPrimary: true }],
+                images: getRandomImages(),
                 capacity: { min: 150, max: 800 },
                 tags: ['traditional', 'heritage', 'maroon', 'gold'],
                 isActive: true, isFeatured: true,
@@ -117,7 +143,7 @@ async function seed() {
                 description: 'A lush tropical mandap with palm leaves, exotic flowers and bright colours for an outdoor celebration.',
                 basePrice: 80000, decorationStyles: ['fusion'],
                 location: { city: 'Hyderabad', state: 'Telangana' },
-                images: [{ url: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80', publicId: 'seed5', isPrimary: true }],
+                images: getRandomImages(),
                 capacity: { min: 100, max: 400 },
                 tags: ['tropical', 'outdoor', 'fusion', 'destination'],
                 isActive: true, isFeatured: false,
@@ -128,7 +154,7 @@ async function seed() {
                 description: 'Draped in silk and adorned with Swarovski-style crystals, this mandap dazzles under lighting.',
                 basePrice: 200000, decorationStyles: ['modern', 'royal'],
                 location: { city: 'Delhi', state: 'Delhi' },
-                images: [{ url: 'https://images.unsplash.com/photo-1550005809-91ad75fb315f?w=800&q=80', publicId: 'seed6', isPrimary: true }],
+                images: getRandomImages(),
                 capacity: { min: 200, max: 1200 },
                 tags: ['crystal', 'luxury', 'elegant', 'silk'],
                 isActive: true, isFeatured: true,

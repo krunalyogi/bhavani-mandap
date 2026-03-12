@@ -52,20 +52,27 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* ─── Hero ────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center bg-hero-pattern pt-20">
-        {/* Background decoration */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 right-10 w-72 h-72 rounded-full opacity-10 animate-float"
-            style={{ background: "radial-gradient(circle, #d4a017, transparent)" }} />
-          <div className="absolute bottom-20 left-10 w-52 h-52 rounded-full opacity-10 animate-float delay-300"
-            style={{ background: "radial-gradient(circle, #800000, transparent)" }} />
+      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden text-white">
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0">
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+          >
+            <source src="https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346161/bhavani_mandap/real_media/videos/VID-20260307-WA0104.mp4" type="video/mp4" />
+          </video>
+          {/* Dark Overlay for text readability */}
+          <div className="absolute inset-0 bg-black/60" />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.p
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="section-subtitle mb-4"
+            className="text-gold-400 font-semibold uppercase tracking-widest text-sm mb-4"
           >
             ✦ Premium Wedding Decorations ✦
           </motion.p>
@@ -75,10 +82,10 @@ export default function HomePage() {
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
             className="text-5xl sm:text-6xl lg:text-8xl font-bold leading-tight mb-6"
-            style={{ fontFamily: "Cormorant Garamond, serif", color: "#800000" }}
+            style={{ fontFamily: "Cormorant Garamond, serif", color: "#ffffff" }}
           >
             Bhavani Mandap
-            <span className="block text-gold-500" style={{ fontFamily: "Cormorant Garamond, serif" }}>
+            <span className="block text-gold-400" style={{ fontFamily: "Cormorant Garamond, serif" }}>
               Decorations
             </span>
           </motion.h1>
@@ -87,7 +94,7 @@ export default function HomePage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="text-lg sm:text-xl text-stone-600 max-w-2xl mx-auto mb-10 leading-relaxed"
+            className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto mb-10 leading-relaxed font-light"
           >
             Crafting unforgettable wedding moments with exquisite floral artistry, dazzling lights, and age-old Indian traditions.
           </motion.p>
@@ -117,9 +124,9 @@ export default function HomePage() {
             className="grid grid-cols-2 md:grid-cols-4 gap-8 mt-20 max-w-3xl mx-auto"
           >
             {STATS.map((s) => (
-              <div key={s.label} className="text-center">
-                <p className="text-4xl font-bold font-serif" style={{ color: "#d4a017" }}>{s.value}</p>
-                <p className="text-sm text-stone-500 mt-1">{s.label}</p>
+              <div key={s.label} className="text-center backdrop-blur-sm bg-black/20 rounded-xl py-4 border border-white/10">
+                <p className="text-4xl font-bold font-serif text-gold-400">{s.value}</p>
+                <p className="text-sm text-white/80 mt-1">{s.label}</p>
               </div>
             ))}
           </motion.div>
