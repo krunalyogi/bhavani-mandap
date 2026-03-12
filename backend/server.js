@@ -82,6 +82,21 @@ app.get('/api/health', (req, res) => {
     res.json({ success: true, message: 'Bhavani Mandap API is running 🙏', timestamp: new Date() });
 });
 
+app.get('/api/seed-database', async (req, res) => {
+    const secret = req.query.secret;
+    if (!secret || secret !== process.env.ADMIN_SECRET) {
+        return res.status(401).json({ success: false, message: 'Unauthorized. Invalid secret.' });
+    }
+    
+    try {
+        const seed = require('./seed');
+        await seed();
+        res.json({ success: true, message: 'Database successfully seeded with real media!' });
+    } catch (error) {
+        res.status(500).json({ success: false, message: 'Seeding failed', error: error.message });
+    }
+});
+
 app.get('/', (req, res) => {
     res.json({
         success: true,

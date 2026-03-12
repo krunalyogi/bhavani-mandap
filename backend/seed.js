@@ -13,8 +13,10 @@ const MONGO_URI = process.env.MONGO_URI;
 
 async function seed() {
     try {
-        await mongoose.connect(MONGO_URI);
-        console.log('✅ Connected to MongoDB');
+        if (mongoose.connection.readyState !== 1) {
+             await mongoose.connect(MONGO_URI);
+             console.log('✅ Connected to MongoDB');
+        }
 
         // Load real media
         const mediaPath = path.join(__dirname, 'real_media.json');
@@ -170,10 +172,18 @@ async function seed() {
         console.log('\n✨ Database seeded successfully!\n');
     } catch (error) {
         console.error('❌ Seeding failed:', error.message || error);
-    } finally {
-        await mongoose.disconnect();
-        process.exit(0);
+        throw error; // Throw so server route can catch it
     }
 }
 
-seed();
+if (require.main === module) {
+    seed().then(() => {
+        mongoose.disconnect();
+        process.exit(0);
+    }).catch(() => {
+        mongoose.disconnect();
+        process.exit(1);
+    });
+} else {
+    module.exports = seed;
+}
