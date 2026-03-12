@@ -9,7 +9,6 @@ const GALLERY_ITEMS = [
   { id: 'v2', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346146/bhavani_mandap/real_media/videos/VID-20260307-WA0102.mp4' },
   { id: 'v3', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346155/bhavani_mandap/real_media/videos/VID-20260307-WA0103.mp4' },
   { id: 'v4', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346161/bhavani_mandap/real_media/videos/VID-20260307-WA0104.mp4' },
-  { id: 'v5', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346167/bhavani_mandap/real_media/videos/VID-20260307-WA0105.mp4' },
   { id: 'v6', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346173/bhavani_mandap/real_media/videos/VID-20260307-WA0117.mp4' },
   
   // Images

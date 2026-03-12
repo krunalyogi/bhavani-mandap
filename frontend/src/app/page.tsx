@@ -52,17 +52,7 @@ export default function HomePage() {
   return (
     <div className="overflow-hidden">
       {/* ─── Hero ────────────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden text-white">
-        {/* Background Image */}
-        <div className="absolute inset-0 z-0">
-          <img
-            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070"
-            alt="Bhavani Mandap Decor"
-            className="w-full h-full object-cover"
-          />
-          {/* Dark Overlay for text readability */}
-          <div className="absolute inset-0 bg-black/60" />
-        </div>
+      <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden text-white" style={{ background: "linear-gradient(135deg, #800000 0%, #4a0000 100%)" }}>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
           <motion.p
@@ -128,13 +118,7 @@ export default function HomePage() {
           </motion.div>
         </div>
 
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <div className="w-6 h-10 rounded-full border-2 border-gold-400 flex items-center justify-center">
-            <div className="w-1 h-3 rounded-full bg-gold-400 mt-1" />
-          </div>
-        </div>
-      </section >
+      </section>
 
       {/* ─── Services ─────────────────────────────────────────────────── */}
       < section className="py-24 bg-white" >
