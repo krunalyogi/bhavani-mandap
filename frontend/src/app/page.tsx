@@ -101,8 +101,8 @@ export default function HomePage() {
             transition={{ delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
           >
-            <Link href="/catalog" className="btn-gold text-base px-8 py-4">
-              <Sparkles size={20} /> Explore Mandaps
+            <Link href="/gallery" className="btn-gold text-base px-8 py-4">
+              <Sparkles size={20} /> Explore Gallery
             </Link>
             <a
               href="tel:+919824520806"
@@ -188,7 +188,7 @@ export default function HomePage() {
           </div>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             {([
-              { step: "01", title: "Browse Mandaps", desc: "Explore our collection of premium mandap designs", Icon: Search },
+              { step: "01", title: "Browse Gallery", desc: "Explore our collection of premium mandap designs", Icon: Search },
               { step: "02", title: "Customize", desc: "Choose flowers, colors, lights & fabric styles", Icon: Palette },
               { step: "03", title: "Book & Pay", desc: "Select your date, pay 30% advance online", Icon: CalendarCheck },
               { step: "04", title: "We Decorate", desc: "Our team arrives and creates magic on your day", Icon: Wand2 },
@@ -257,8 +257,8 @@ export default function HomePage() {
               Book your mandap today and let us transform your special day into an eternal memory.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link href="/catalog" className="btn-gold px-10 py-4 text-base">
-                Browse All Mandaps <ArrowRight size={18} />
+              <Link href="/gallery" className="btn-gold px-10 py-4 text-base">
+                Browse Our Gallery <ArrowRight size={18} />
               </Link>
               <Link href="/contact" className="btn-outline-gold px-10 py-4 text-base">
                 Get Custom Quote

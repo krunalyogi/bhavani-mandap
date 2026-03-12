@@ -199,7 +199,7 @@ export default function AboutClient() {
                         <h2 className="text-4xl font-bold text-white font-serif mb-4">Ready to Begin Your Story?</h2>
                         <p className="text-white/70 mb-8">Let Bhavani Mandap transform your wedding day into a timeless memory.</p>
                         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                            <Link href="/catalog" className="btn-gold px-8 py-4">Explore Mandaps</Link>
+                            <Link href="/gallery" className="btn-gold px-8 py-4">Explore Gallery</Link>
                             <Link href="/contact" className="bg-white/10 text-white border border-white/30 hover:bg-white/20 transition-all px-8 py-4 rounded-xl font-semibold">
                                 Get in Touch
                             </Link>

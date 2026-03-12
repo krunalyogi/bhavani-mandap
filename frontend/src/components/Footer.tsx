@@ -4,7 +4,6 @@ import { Phone, Mail, MapPin, Instagram, Facebook, Youtube, Heart } from "lucide
 
 const SERVICES = ["Mandap Setup", "Stage Decoration", "Floral Décor", "Lighting", "Entry Gate Decor", "Seating Arrangements"];
 const QUICK_LINKS = [
-    { href: "/catalog", label: "Browse Mandaps" },
     { href: "/about", label: "About Us" },
     { href: "/gallery", label: "Gallery" },
     { href: "/contact", label: "Contact" },
@@ -76,7 +75,7 @@ export default function Footer() {
                         <ul className="space-y-2">
                             {SERVICES.map((s) => (
                                 <li key={s}>
-                                    <Link href="/catalog" className="text-sm text-stone-400 hover:text-gold-400 transition-colors flex items-center gap-2">
+                                    <Link href="/gallery" className="text-sm text-stone-400 hover:text-gold-400 transition-colors flex items-center gap-2">
                                         <span className="text-gold-600 text-xs">✦</span> {s}
                                     </Link>
                                 </li>

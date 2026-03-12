@@ -4,7 +4,6 @@ import { Toaster } from "react-hot-toast";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import { AuthProvider } from "@/context/AuthContext";
-import { WishlistProvider } from "@/context/WishlistContext";
 
 export const metadata: Metadata = {
   title: {
@@ -35,7 +34,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen flex flex-col">
         <AuthProvider>
-          <WishlistProvider>
             <Toaster
               position="top-right"
               toastOptions={{
@@ -45,7 +43,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <Navbar />
             <main className="flex-1">{children}</main>
             <Footer />
-          </WishlistProvider>
         </AuthProvider>
       </body>
     </html>
