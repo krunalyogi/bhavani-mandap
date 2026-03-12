@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect, useCallback, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { Search, SlidersHorizontal, X } from "lucide-react";
 import api from "@/lib/api";
@@ -18,6 +18,7 @@ const SORT_OPTIONS = [
 
 function CatalogContent() {
     const searchParams = useSearchParams();
+    const router = useRouter();
     const [mandaps, setMandaps] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [total, setTotal] = useState(0);
@@ -26,11 +27,11 @@ function CatalogContent() {
     const [filters, setFilters] = useState({
         search: searchParams?.get("search") || "",
         city: searchParams?.get("city") || "",
-        style: "",
-        minPrice: "",
-        maxPrice: "",
-        capacity: "",
-        sort: "-createdAt",
+        style: searchParams?.get("style") || "",
+        minPrice: searchParams?.get("minPrice") || "",
+        maxPrice: searchParams?.get("maxPrice") || "",
+        capacity: searchParams?.get("capacity") || "",
+        sort: searchParams?.get("sort") || "-createdAt",
     });
 
     const fetchMandaps = useCallback(async () => {
@@ -40,9 +41,20 @@ function CatalogContent() {
             const { data } = await api.get(`/mandaps?${params}`);
             setMandaps(data.data || []);
             setTotal(data.pagination?.total || 0);
+
+            // Sync to URL
+            const urlParams = new URLSearchParams();
+            Object.entries(filters).forEach(([key, value]) => {
+                if (value && value !== "-createdAt") {
+                    urlParams.set(key, value);
+                }
+            });
+            const newUrl = urlParams.toString() ? `/catalog?${urlParams.toString()}` : '/catalog';
+            router.push(newUrl, { scroll: false });
+            
         } catch { setMandaps([]); }
         setLoading(false);
-    }, [filters, page]);
+    }, [filters, page, router]);
 
     useEffect(() => { fetchMandaps(); }, [fetchMandaps]);
 

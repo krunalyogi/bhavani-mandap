@@ -22,12 +22,25 @@ export default function Navbar() {
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 20);
         window.addEventListener("scroll", onScroll);
-        return () => window.removeEventListener("scroll", onScroll);
-    }, []);
+        
+        // Close menu on click outside
+        const handleClickOutside = (e: MouseEvent) => {
+            const target = e.target as HTMLElement;
+            if (menuOpen && !target.closest('.mobile-menu-container')) {
+                setMenuOpen(false);
+            }
+        };
+        window.addEventListener("click", handleClickOutside);
+        
+        return () => {
+            window.removeEventListener("scroll", onScroll);
+            window.removeEventListener("click", handleClickOutside);
+        };
+    }, [menuOpen]);
 
     return (
         <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
+            className={`mobile-menu-container fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
                 ? "bg-white/95 backdrop-blur-md shadow-lg border-b border-gold-100"
                 : "bg-cream/80 backdrop-blur-sm"
                 }`}

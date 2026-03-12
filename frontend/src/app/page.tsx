@@ -110,9 +110,9 @@ export default function HomePage() {
             </Link>
             <a
               href="tel:+919824520806"
-              className="btn-outline-gold text-base px-8 py-4"
+              className="btn-outline-gold text-base px-8 py-4 backdrop-blur-sm bg-black/10 hover:bg-black/30 text-white border-white/30"
             >
-              <PhoneCall size={20} /> Book Now
+              <PhoneCall size={20} /> Call to Enquire
             </a>
           </motion.div>
 
