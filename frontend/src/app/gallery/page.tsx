@@ -3,21 +3,73 @@ import { useState } from "react";
 import { motion, AnimatePresence, type Variants } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 
-const CATEGORIES = ["All", "Royal Mandap", "Floral Décor", "Stage", "Lighting", "Entry Gate", "Reception"];
-
 const GALLERY_ITEMS = [
-    { id: 1, category: "Royal Mandap", title: "Gold & White Royal Setup", location: "Mehsana", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346037/bhavani_mandap/real_media/images/IMG-20260307-WA0044.jpg", aspect: "landscape" },
-    { id: 2, category: "Floral Décor", title: "Rose & Marigold Arch", location: "Ahmedabad", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346039/bhavani_mandap/real_media/images/IMG-20260307-WA0045.jpg", aspect: "portrait" },
-    { id: 3, category: "Stage", title: "Velvet Backdrop Stage", location: "Surat", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346041/bhavani_mandap/real_media/images/IMG-20260307-WA0046.jpg", aspect: "landscape" },
-    { id: 4, category: "Lighting", title: "Fairy Light Canopy", location: "Vadodara", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346042/bhavani_mandap/real_media/images/IMG-20260307-WA0047.jpg", aspect: "portrait" },
-    { id: 5, category: "Entry Gate", title: "Floral Entry Arch", location: "Rajkot", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346044/bhavani_mandap/real_media/images/IMG-20260307-WA0048.jpg", aspect: "landscape" },
-    { id: 6, category: "Reception", title: "Grand Reception Setup", location: "Gandhinagar", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346046/bhavani_mandap/real_media/images/IMG-20260307-WA0049.jpg", aspect: "landscape" },
-    { id: 7, category: "Royal Mandap", title: "Maroon & Gold Mandap", location: "Mehsana", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346048/bhavani_mandap/real_media/images/IMG-20260307-WA0050.jpg", aspect: "portrait" },
-    { id: 8, category: "Floral Décor", title: "Orchid & Lily Decor", location: "Ahmedabad", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346049/bhavani_mandap/real_media/images/IMG-20260307-WA0051.jpg", aspect: "landscape" },
-    { id: 9, category: "Stage", title: "Led Wall Stage", location: "Surat", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346051/bhavani_mandap/real_media/images/IMG-20260307-WA0052.jpg", aspect: "landscape" },
-    { id: 10, category: "Lighting", title: "Chandelier Mandap", location: "Vadodara", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346052/bhavani_mandap/real_media/images/IMG-20260307-WA0053.jpg", aspect: "portrait" },
-    { id: 11, category: "Entry Gate", title: "Jasmine Gate Decor", location: "Mehsana", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346054/bhavani_mandap/real_media/images/IMG-20260307-WA0054.jpg", aspect: "landscape" },
-    { id: 12, category: "Reception", title: "Crystal Ballroom Setup", location: "Ahmedabad", src: "https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346056/bhavani_mandap/real_media/images/IMG-20260307-WA0055.jpg", aspect: "portrait" },
+  // Videos
+  { id: 'v1', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346143/bhavani_mandap/real_media/videos/VID-20260307-WA0101.mp4' },
+  { id: 'v2', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346146/bhavani_mandap/real_media/videos/VID-20260307-WA0102.mp4' },
+  { id: 'v3', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346155/bhavani_mandap/real_media/videos/VID-20260307-WA0103.mp4' },
+  { id: 'v4', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346161/bhavani_mandap/real_media/videos/VID-20260307-WA0104.mp4' },
+  { id: 'v5', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346167/bhavani_mandap/real_media/videos/VID-20260307-WA0105.mp4' },
+  { id: 'v6', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346173/bhavani_mandap/real_media/videos/VID-20260307-WA0117.mp4' },
+  
+  // Images
+  { id: 'i1', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346037/bhavani_mandap/real_media/images/IMG-20260307-WA0044.jpg' },
+  { id: 'i2', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346039/bhavani_mandap/real_media/images/IMG-20260307-WA0045.jpg' },
+  { id: 'i3', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346041/bhavani_mandap/real_media/images/IMG-20260307-WA0046.jpg' },
+  { id: 'i4', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346042/bhavani_mandap/real_media/images/IMG-20260307-WA0047.jpg' },
+  { id: 'i5', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346044/bhavani_mandap/real_media/images/IMG-20260307-WA0048.jpg' },
+  { id: 'i6', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346046/bhavani_mandap/real_media/images/IMG-20260307-WA0049.jpg' },
+  { id: 'i7', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346048/bhavani_mandap/real_media/images/IMG-20260307-WA0050.jpg' },
+  { id: 'i8', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346049/bhavani_mandap/real_media/images/IMG-20260307-WA0051.jpg' },
+  { id: 'i9', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346051/bhavani_mandap/real_media/images/IMG-20260307-WA0052.jpg' },
+  { id: 'i10', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346052/bhavani_mandap/real_media/images/IMG-20260307-WA0053.jpg' },
+  { id: 'i11', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346054/bhavani_mandap/real_media/images/IMG-20260307-WA0054.jpg' },
+  { id: 'i12', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346056/bhavani_mandap/real_media/images/IMG-20260307-WA0055.jpg' },
+  { id: 'i13', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346058/bhavani_mandap/real_media/images/IMG-20260307-WA0056.jpg' },
+  { id: 'i14', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346060/bhavani_mandap/real_media/images/IMG-20260307-WA0057.jpg' },
+  { id: 'i15', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346062/bhavani_mandap/real_media/images/IMG-20260307-WA0058.jpg' },
+  { id: 'i16', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346064/bhavani_mandap/real_media/images/IMG-20260307-WA0059.jpg' },
+  { id: 'i17', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346066/bhavani_mandap/real_media/images/IMG-20260307-WA0060.jpg' },
+  { id: 'i18', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346068/bhavani_mandap/real_media/images/IMG-20260307-WA0061.jpg' },
+  { id: 'i19', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346070/bhavani_mandap/real_media/images/IMG-20260307-WA0062.jpg' },
+  { id: 'i20', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346072/bhavani_mandap/real_media/images/IMG-20260307-WA0063.jpg' },
+  { id: 'i21', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346073/bhavani_mandap/real_media/images/IMG-20260307-WA0064.jpg' },
+  { id: 'i22', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346075/bhavani_mandap/real_media/images/IMG-20260307-WA0065.jpg' },
+  { id: 'i23', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346077/bhavani_mandap/real_media/images/IMG-20260307-WA0066.jpg' },
+  { id: 'i24', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346079/bhavani_mandap/real_media/images/IMG-20260307-WA0067.jpg' },
+  { id: 'i25', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346080/bhavani_mandap/real_media/images/IMG-20260307-WA0068.jpg' },
+  { id: 'i26', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346082/bhavani_mandap/real_media/images/IMG-20260307-WA0069.jpg' },
+  { id: 'i27', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346084/bhavani_mandap/real_media/images/IMG-20260307-WA0070.jpg' },
+  { id: 'i28', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346086/bhavani_mandap/real_media/images/IMG-20260307-WA0071.jpg' },
+  { id: 'i29', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346088/bhavani_mandap/real_media/images/IMG-20260307-WA0072.jpg' },
+  { id: 'i30', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346090/bhavani_mandap/real_media/images/IMG-20260307-WA0073.jpg' },
+  { id: 'i31', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346091/bhavani_mandap/real_media/images/IMG-20260307-WA0074.jpg' },
+  { id: 'i32', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346094/bhavani_mandap/real_media/images/IMG-20260307-WA0075.jpg' },
+  { id: 'i33', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346096/bhavani_mandap/real_media/images/IMG-20260307-WA0076.jpg' },
+  { id: 'i34', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346097/bhavani_mandap/real_media/images/IMG-20260307-WA0077.jpg' },
+  { id: 'i35', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346099/bhavani_mandap/real_media/images/IMG-20260307-WA0078.jpg' },
+  { id: 'i36', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346101/bhavani_mandap/real_media/images/IMG-20260307-WA0079.jpg' },
+  { id: 'i37', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346103/bhavani_mandap/real_media/images/IMG-20260307-WA0080.jpg' },
+  { id: 'i38', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346104/bhavani_mandap/real_media/images/IMG-20260307-WA0081.jpg' },
+  { id: 'i39', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346106/bhavani_mandap/real_media/images/IMG-20260307-WA0082.jpg' },
+  { id: 'i40', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346108/bhavani_mandap/real_media/images/IMG-20260307-WA0083.jpg' },
+  { id: 'i41', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346110/bhavani_mandap/real_media/images/IMG-20260307-WA0084.jpg' },
+  { id: 'i42', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346111/bhavani_mandap/real_media/images/IMG-20260307-WA0085.jpg' },
+  { id: 'i43', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346113/bhavani_mandap/real_media/images/IMG-20260307-WA0086.jpg' },
+  { id: 'i44', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346115/bhavani_mandap/real_media/images/IMG-20260307-WA0087.jpg' },
+  { id: 'i45', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346117/bhavani_mandap/real_media/images/IMG-20260307-WA0088.jpg' },
+  { id: 'i46', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346120/bhavani_mandap/real_media/images/IMG-20260307-WA0089.jpg' },
+  { id: 'i47', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346122/bhavani_mandap/real_media/images/IMG-20260307-WA0090.jpg' },
+  { id: 'i48', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346124/bhavani_mandap/real_media/images/IMG-20260307-WA0091.jpg' },
+  { id: 'i49', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346126/bhavani_mandap/real_media/images/IMG-20260307-WA0092.jpg' },
+  { id: 'i50', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346127/bhavani_mandap/real_media/images/IMG-20260307-WA0093.jpg' },
+  { id: 'i51', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346129/bhavani_mandap/real_media/images/IMG-20260307-WA0094.jpg' },
+  { id: 'i52', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346132/bhavani_mandap/real_media/images/IMG-20260307-WA0095.jpg' },
+  { id: 'i53', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346134/bhavani_mandap/real_media/images/IMG-20260307-WA0096.jpg' },
+  { id: 'i54', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346135/bhavani_mandap/real_media/images/IMG-20260307-WA0097.jpg' },
+  { id: 'i55', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346137/bhavani_mandap/real_media/images/IMG-20260307-WA0098.jpg' },
+  { id: 'i56', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346139/bhavani_mandap/real_media/images/IMG-20260307-WA0099.jpg' },
+  { id: 'i57', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346141/bhavani_mandap/real_media/images/IMG-20260307-WA0100.jpg' },
 ];
 
 const fadeUp: Variants = {
@@ -26,13 +78,10 @@ const fadeUp: Variants = {
 };
 
 export default function GalleryPage() {
-    const [activeCategory, setActiveCategory] = useState("All");
     const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
 
-    const filtered = activeCategory === "All" ? GALLERY_ITEMS : GALLERY_ITEMS.filter((g) => g.category === activeCategory);
-
-    const prev = () => setLightboxIndex((i) => (i !== null ? (i - 1 + filtered.length) % filtered.length : null));
-    const next = () => setLightboxIndex((i) => (i !== null ? (i + 1) % filtered.length : null));
+    const prev = () => setLightboxIndex((i) => (i !== null ? (i - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length : null));
+    const next = () => setLightboxIndex((i) => (i !== null ? (i + 1) % GALLERY_ITEMS.length : null));
 
     return (
         <div className="min-h-screen bg-cream pt-24 pb-16">
@@ -57,53 +106,42 @@ export default function GalleryPage() {
             </section>
 
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-12">
-                {/* Filter Pills */}
-                <div className="flex flex-wrap gap-3 justify-center mb-10">
-                    {CATEGORIES.map((cat) => (
-                        <button
-                            key={cat}
-                            onClick={() => setActiveCategory(cat)}
-                            className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${activeCategory === cat
-                                ? "bg-gold-500 text-white shadow-gold"
-                                : "bg-white text-stone-600 border border-stone-200 hover:border-gold-300"
-                                }`}
-                        >
-                            {cat}
-                        </button>
-                    ))}
-                </div>
 
                 {/* Masonry Grid */}
                 <div className="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4 space-y-4">
-                    {filtered.map((item, i) => (
+                    {GALLERY_ITEMS.map((item, i) => (
                         <motion.div
                             key={item.id}
-                            layout
                             initial="hidden"
-                            animate="visible"
+                            whileInView="visible"
+                            viewport={{ once: true, margin: "100px" }}
                             variants={fadeUp}
-                            custom={i}
-                            className="break-inside-avoid relative group cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:shadow-premium transition-all duration-300"
+                            custom={i % 10} // Just slightly stagger rows
+                            className="break-inside-avoid relative group cursor-pointer rounded-2xl overflow-hidden shadow-sm hover:shadow-premium transition-all duration-300 bg-stone-100"
                             onClick={() => setLightboxIndex(i)}
                         >
-                            <img
-                                src={item.src}
-                                alt={item.title}
-                                className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
-                                style={{ aspectRatio: item.aspect === "portrait" ? "3/4" : "4/3" }}
-                            />
-                            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-all duration-300">
-                                <div className="absolute bottom-0 left-0 right-0 p-4">
-                                    <p className="text-white font-semibold text-sm">{item.title}</p>
-                                    <p className="text-gold-300 text-xs mt-1">{item.location}</p>
-                                </div>
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                                    <ZoomIn className="text-white w-8 h-8 opacity-80" />
+                            {item.type === 'video' ? (
+                                <video
+                                    src={item.src}
+                                    autoPlay
+                                    muted
+                                    loop
+                                    playsInline
+                                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                            ) : (
+                                <img
+                                    src={item.src}
+                                    alt="Mandap Setup"
+                                    loading="lazy"
+                                    className="w-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                />
+                            )}
+                            <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-all duration-300">
+                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-0 group-hover:opacity-100 transition-opacity">
+                                    <ZoomIn className="text-white w-10 h-10 drop-shadow-lg" />
                                 </div>
                             </div>
-                            <span className="absolute top-3 left-3 bg-gold-500/90 text-white text-xs px-2.5 py-1 rounded-full">
-                                {item.category}
-                            </span>
                         </motion.div>
                     ))}
                 </div>
@@ -135,7 +173,7 @@ export default function GalleryPage() {
                             <ChevronLeft size={32} />
                         </button>
 
-                        {/* Image */}
+                        {/* Media */}
                         <motion.div
                             key={lightboxIndex}
                             initial={{ scale: 0.85, opacity: 0 }}
@@ -143,17 +181,23 @@ export default function GalleryPage() {
                             exit={{ scale: 0.85, opacity: 0 }}
                             transition={{ duration: 0.3 }}
                             onClick={(e) => e.stopPropagation()}
-                            className="max-w-4xl w-full"
+                            className="max-w-4xl w-full flex justify-center items-center"
                         >
-                            <img
-                                src={filtered[lightboxIndex].src}
-                                alt={filtered[lightboxIndex].title}
-                                className="w-full rounded-2xl object-cover max-h-[80vh]"
-                            />
-                            <div className="mt-4 text-center">
-                                <p className="text-white font-semibold text-lg">{filtered[lightboxIndex].title}</p>
-                                <p className="text-gold-400 text-sm mt-1">{filtered[lightboxIndex].category} · {filtered[lightboxIndex].location}</p>
-                            </div>
+                            {GALLERY_ITEMS[lightboxIndex].type === 'video' ? (
+                                <video
+                                    src={GALLERY_ITEMS[lightboxIndex].src}
+                                    controls
+                                    autoPlay
+                                    playsInline
+                                    className="w-auto max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl"
+                                />
+                            ) : (
+                                <img
+                                    src={GALLERY_ITEMS[lightboxIndex].src}
+                                    alt="Gallery Display"
+                                    className="w-auto max-w-full max-h-[85vh] rounded-2xl object-contain shadow-2xl"
+                                />
+                            )}
                         </motion.div>
 
                         {/* Next */}
@@ -165,8 +209,8 @@ export default function GalleryPage() {
                         </button>
 
                         {/* Counter */}
-                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm">
-                            {lightboxIndex + 1} / {filtered.length}
+                        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white/60 text-sm font-medium">
+                            {lightboxIndex + 1} / {GALLERY_ITEMS.length}
                         </div>
                     </motion.div>
                 )}

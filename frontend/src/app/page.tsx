@@ -53,17 +53,13 @@ export default function HomePage() {
     <div className="overflow-hidden">
       {/* ─── Hero ────────────────────────────────────────────────────── */}
       <section className="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden text-white">
-        {/* Background Video */}
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
+          <img
+            src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?q=80&w=2070"
+            alt="Bhavani Mandap Decor"
             className="w-full h-full object-cover"
-          >
-            <source src="https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346161/bhavani_mandap/real_media/videos/VID-20260307-WA0104.mp4" type="video/mp4" />
-          </video>
+          />
           {/* Dark Overlay for text readability */}
           <div className="absolute inset-0 bg-black/60" />
         </div>
