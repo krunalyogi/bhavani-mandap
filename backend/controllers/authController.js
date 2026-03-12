@@ -82,6 +82,34 @@ exports.register = async (req, res) => {
     sendTokenResponse(user, 201, res);
 };
 
+// @desc    Register admin (Secret Route)
+// @route   POST /api/auth/admin-register
+// @access  Public (with secret key)
+exports.adminRegister = async (req, res) => {
+    const { name, email, password, phone, secret } = req.body;
+
+    if (!secret || secret !== process.env.ADMIN_SECRET) {
+        return res.status(401).json({ success: false, message: 'Unauthorized. Invalid admin secret.' });
+    }
+
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+        return res.status(400).json({ success: false, message: 'Email already registered' });
+    }
+
+    const userRef = `BM${crypto.randomBytes(4).toString('hex').toUpperCase()}`;
+    const user = await User.create({
+        name,
+        email,
+        password,
+        phone,
+        role: 'admin',
+        referralCode: userRef,
+    });
+
+    sendTokenResponse(user, 201, res);
+};
+
 // @desc    Login
 // @route   POST /api/auth/login
 // @access  Public
