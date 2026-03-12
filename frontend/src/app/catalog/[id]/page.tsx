@@ -1,23 +1,26 @@
 "use client";
 import { useState, useEffect } from "react";
-import { useParams, useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import { motion } from "framer-motion";
-import { Star, MapPin, Users, ChevronLeft, ChevronRight, Heart, Share2, Check, Sparkles } from "lucide-react";
+import { Star, MapPin, Users, ChevronLeft, ChevronRight, Share2, Check, Sparkles, Phone, MessageCircle } from "lucide-react";
 import Link from "next/link";
 import api from "@/lib/api";
-import { useWishlist } from "@/context/WishlistContext";
-import { useAuth } from "@/context/AuthContext";
 import toast from "react-hot-toast";
 
 export default function MandapDetailPage() {
     const { id } = useParams();
-    const router = useRouter();
-    const { toggle, isWishlisted } = useWishlist();
-    const { isAuthenticated } = useAuth();
     const [mandap, setMandap] = useState<any>(null);
     const [reviews, setReviews] = useState<any[]>([]);
     const [loading, setLoading] = useState(true);
     const [currentImage, setCurrentImage] = useState(0);
+    const [copied, setCopied] = useState(false);
+
+    const shareLink = () => {
+        navigator.clipboard.writeText(window.location.href).then(() => {
+            setCopied(true);
+            setTimeout(() => setCopied(false), 2000);
+        });
+    };
 
     useEffect(() => {
         const load = async () => {
@@ -188,24 +191,23 @@ export default function MandapDetailPage() {
 
                         {/* Action Buttons */}
                         <div className="flex flex-col gap-3">
-                            <Link href={`/book/${mandap._id}`} className="btn-gold w-full text-center py-4 text-base">
-                                📅 Book This Mandap
-                            </Link>
-                            <Link href={`/customize/${mandap._id}`} className="btn-outline-gold w-full text-center py-4 text-base">
-                                <Sparkles size={18} /> Customize Design
-                            </Link>
-                            <div className="flex gap-3">
-                                <button
-                                    onClick={() => toggle(mandap._id)}
-                                    className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-stone-200 hover:border-red-200 hover:bg-red-50 transition-all text-sm"
-                                >
-                                    <Heart size={18} className={isWishlisted(mandap._id) ? "fill-red-500 text-red-500" : "text-stone-400"} />
-                                    {isWishlisted(mandap._id) ? "Saved" : "Save"}
-                                </button>
-                                <button className="flex-1 flex items-center justify-center gap-2 py-3 rounded-xl border border-stone-200 hover:border-gold-200 hover:bg-gold-50 transition-all text-sm">
-                                    <Share2 size={18} className="text-stone-400" /> Share
-                                </button>
-                            </div>
+                            <a
+                                href="tel:+919824520806"
+                                className="btn-gold w-full text-center py-4 text-base flex items-center justify-center gap-2"
+                            >
+                                <Phone size={18} /> Call to Enquire
+                            </a>
+                            <a
+                                href={`https://wa.me/919824520806?text=Hi! I'm interested in booking ${encodeURIComponent(mandap?.title || 'your mandap')}. Please send me more details.`}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="btn-outline-gold w-full text-center py-4 text-base flex items-center justify-center gap-2"
+                            >
+                                <MessageCircle size={18} /> WhatsApp Us
+                            </a>
+                            <button onClick={shareLink} className="flex items-center justify-center gap-2 py-3 rounded-xl border border-stone-200 hover:border-gold-200 hover:bg-gold-50 transition-all text-sm text-stone-600">
+                                <Share2 size={18} className="text-stone-400" /> {copied ? "Link copied!" : "Share"}
+                            </button>
                         </div>
 
                         {/* Vendor Info */}
