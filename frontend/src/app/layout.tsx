@@ -20,9 +20,6 @@ export const metadata: Metadata = {
     locale: "en_IN",
     siteName: "Bhavani Mandap",
   },
-  icons: {
-    icon: "/favicon.ico",
-  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
