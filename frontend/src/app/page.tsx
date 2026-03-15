@@ -37,7 +37,7 @@ const TESTIMONIALS = [
 ];
 
 const STATS = [
-  { value: "2000+", label: "Weddings Decorated" },
+  { value: "50000+", label: "Weddings Decorated" },
   { value: "40+", label: "Years Experience" },
   { value: "50+", label: "Cities Served" },
   { value: "99%", label: "Happy Clients" },

@@ -26,7 +26,7 @@ const TIMELINE = [
     { year: "2010", title: "500th Wedding", desc: "Celebrated our 500th decorated wedding — a golden milestone for the entire team." },
     { year: "2019", title: "Award for Excellence", desc: "Received Gujarat Wedding Decorators Award for outstanding artistry and service." },
     { year: "2022", title: "Online Platform Launch", desc: "Launched bhavanimandap.in for seamless online booking across Gujarat." },
-    { year: "2025", title: "2000+ Weddings", desc: "Proudly served over 2000 couples across Gujarat and beyond, carrying 40 years of legacy." },
+    { year: "2025", title: "50000+ Weddings", desc: "Proudly served over 50000 couples across Gujarat and beyond, carrying 40 years of legacy." },
 ];
 
 export default function AboutClient() {
@@ -64,7 +64,7 @@ export default function AboutClient() {
                                 Bhavani Mandap was born in 1985 from a simple belief: every couple deserves a wedding as unique as their love story. Founded by Sanjay Patel in Mehsana, Gujarat, we began with just a team of 5 artisans and an unwavering passion for floral artistry.
                             </p>
                             <p className="text-stone-600 leading-relaxed mb-4">
-                                Today, we are a 200+ member family spread across 50+ cities, having decorated over 2000 weddings with our signature blend of traditional Indian aesthetics and modern design sensibilities.
+                                Today, we are a 200+ member family spread across 50+ cities, having decorated over 50000 weddings with our signature blend of traditional Indian aesthetics and modern design sensibilities.
                             </p>
                             <p className="text-stone-600 leading-relaxed">
                                 From intimate home ceremonies to opulent 5-star banquet weddings, each event receives our complete attention and a personal touch that makes it unforgettable.
@@ -78,7 +78,7 @@ export default function AboutClient() {
                             className="grid grid-cols-2 gap-4"
                         >
                             {[
-                                { value: "2000+", label: "Weddings Decorated", Icon: Gem, color: "#d4a017" },
+                                { value: "50000+", label: "Weddings Decorated", Icon: Gem, color: "#d4a017" },
                                 { value: "40+", label: "Years Experience", Icon: Star, color: "#800000" },
                                 { value: "50+", label: "Cities Served", Icon: Map, color: "#d4a017" },
                                 { value: "200+", label: "Expert Team Members", Icon: Users, color: "#800000" },
