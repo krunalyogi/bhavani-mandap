@@ -47,7 +47,7 @@ export default function Footer() {
                                 <Phone size={16} className="text-gold-500 flex-shrink-0" /> +91 98245 20806 (Sanjay Patel)
                             </a>
                             <p className="flex items-center gap-3">
-                                <MapPin size={16} className="text-gold-500 flex-shrink-0" /> Mehsana, Gujarat, India
+                                <MapPin size={16} className="text-gold-500 flex-shrink-0" /> Ahmedabad, Gujarat, India
                             </p>
                         </div>
                     </div>
