@@ -10,6 +10,12 @@ const GALLERY_ITEMS = [
   { id: 'v3', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346155/bhavani_mandap/real_media/videos/VID-20260307-WA0103.mp4' },
   { id: 'v4', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346161/bhavani_mandap/real_media/videos/VID-20260307-WA0104.mp4' },
   { id: 'v6', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1773346173/bhavani_mandap/real_media/videos/VID-20260307-WA0117.mp4' },
+  { id: 'v7', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1788679946/bhavani_mandap/real_media/videos/WhatsApp_Video_2026-09-06_at_10.18.52_AM.mp4' },
+  { id: 'v8', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1788679961/bhavani_mandap/real_media/videos/WhatsApp_Video_2026-09-06_at_10.18.53_AM_1.mp4' },
+  { id: 'v9', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1788679974/bhavani_mandap/real_media/videos/WhatsApp_Video_2026-09-06_at_10.18.53_AM.mp4' },
+  { id: 'v10', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1788679981/bhavani_mandap/real_media/videos/WhatsApp_Video_2026-09-06_at_10.20.37_AM.mp4' },
+  { id: 'v11', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1788679988/bhavani_mandap/real_media/videos/WhatsApp_Video_2026-09-06_at_10.21.58_AM.mp4' },
+  { id: 'v12', type: 'video', src: 'https://res.cloudinary.com/dgmlfzlkd/video/upload/v1788679994/bhavani_mandap/real_media/videos/WhatsApp_Video_2026-09-06_at_10.28.47_AM.mp4' },
   
   // Images
   { id: 'i1', type: 'image', src: 'https://res.cloudinary.com/dgmlfzlkd/image/upload/v1773346037/bhavani_mandap/real_media/images/IMG-20260307-WA0044.jpg' },
